@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OrderPage</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Order</h1>
+    <!--<input type="button" value="View Cart" onclick="javascript:location.href='/viewCart'">-->
+    <table border='1'> 
+      <tr> 
+        <th>책 번호</th> 
+        <th>책 이름</th> 
+        <th>가격</th> 
+      </tr>
+      <% if(rows) {rows.forEach((row, index)=>{ %>
+      <tr> 
+        <td><%=row.name%></td> 
+        <td><%=row.price%></td> 
+        <td> 
+          <!-- <input type="button" onclick="javascript:location.href='/AddtoCart?BookNumber=<%=row.book_no%>'" value="ToCart"> -->
+        </td> 
+      </tr> 
+      <% })} %>
+    </table>
+    <input type="button" value="Back" onclick="javascript:location.href='/index'">
+  </body>
+</html>

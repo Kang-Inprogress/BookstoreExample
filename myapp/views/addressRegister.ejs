@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소 등록</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="register">
+            <h2>주소 등록</h2>
+            <form method="POST" action="/AddAddress">
+                우편번호<br>
+                <input type="text" name="zipcode"><br>
+                주소1<br>
+                <input type="text" name="address1"><br>
+                주소2<br>
+                <input type="text" name="address2"><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+    <input type="button" value="Back" onclick="javascript:location.href='/index'">
+</body>
+</html>

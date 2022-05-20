@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Cart list</h1>
+    <table border='1'> 
+      <tr> 
+        <th>Book Name</th> 
+        <th>Quantity</th> 
+        <th>Subtotal</th> 
+        <th>Edit?</th>
+      </tr>
+      <% rows.forEach((row, index)=>{ %>
+      <tr> 
+        <td><%=row.name%></td> 
+        <td><%=row.qtt%></td> 
+        <td><%=row.subtotal%></td> 
+        <td>
+           <!--기존 메모 수정 페이지 이동, row.ID반환-->
+          <input type="button" onclick="javascript:location.href='/DeletebookFromCart?BookNumber=<%=row.book_no%>'" value="Delete"> <!--req.query.BookNumber으로 row.name을 받을 수 있음-->
+          <input type="button" onclick="javascript:location.href='/AddQtt?BookNumber=<%=row.book_no%>'" value="AddQtt">
+          <input type="button" onclick="javascript:location.href='/SubQtt?BookNumber=<%=row.book_no%>'" value="SubQtt">
+        </td>
+      </tr> 
+      <% }) %>
+    </table>
+    <button type="button" onclick="javascript:location.href='/index'" value="Back">BACK</button>
+    <button type="button" onclick="javascript:location.href='/OrderCart'" value="Order">ORDER</button>
+    <h4 style="color:red">주의 ORDER선택시 확인 창 없이 진행됨</h4>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+프로젝트 실행
+set DEBUG=myapp:* & npm start
+
+Express 프로젝트 구조
+bin/www : http 서버 설정 및 생성(서버 구동시 가장 먼저 로드)
+app.js : view엔진 및 라우팅 기능을 하는 express객체를 세팅(환경설정)
+routes/* : 요청 수신 및 view렌더링
+public/* : 주로 view에서 사용될 css, img, js 관리
+views/* : 라우팅을 통해 브라우저에서 보여줄 화면 단 파일(ejs)
+
+npm start -> bin/www에서 서버를 생성
+-> app.js를 요청해서 express 객체 설정, 생성
+-> routes/*.js를 호출하고, 여기서 데이터와 view를 처리하는 구조
+
+Database
+Route단에서 DB와 연결할 수 있도록 설정한다 DB스크립트를 요청해 MySQL에 접속하고 필요한 데이터 조회, 삽입, 수정, 삭제 등을 수행한 후 결과와 데이터를 Route로 반환한다
+조회하여 표시하는 기능은 렌더링하는 페이지에서 출력하도록. 
+[예] routes/index.js파일의 router.get('/', ... 에서 코드 작성(메인페이지에 표시)
+
+index.js: 23:~ 에서 유효성검사에서 걸리면,
+validationResult함수에서 반환해 주는 JSON 데이터: 
+Result { formatter: [Function: formatter], errors: [ { value: '~ 입력한 데이터 ~', msg: 'Invalid value', param: 'content', location: 'body' } ] }
+

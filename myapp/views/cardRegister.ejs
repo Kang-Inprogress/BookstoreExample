@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 등록</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="register">
+            <h2>카드 등록</h2>
+            <form method="POST" action="/AddCard">
+                카드 번호<br>
+                <input type="text" name="CardNumber" maxlength="16"><br>
+                만료 날짜<br>
+                <input type="text" name="expireDate_year" maxlength="2">년 <input type="text" name="expireDate_month" maxlength="2">월<br>
+                카드 타입<br>
+                <select name="CardType" id="">
+                    <option value="Check">체크카드</option>
+                    <option value="Credit">신용카드</option>
+                    <option value="Corperation">법인카드</option>
+                </select>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+    <input type="button" value="Back" onclick="javascript:location.href='/index'">
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <h1>주소</h1>
+    <table border='1'> 
+      <tr> 
+        <th>우편번호</th> 
+        <th>주소1</th> 
+        <th>주소2</th> 
+      </tr>
+      <% if(rows1) {rows1.forEach((address_rows , index)=>{ %>
+      <tr> 
+        <td><%=address_rows['zipcode']%></td> 
+        <td><%=address_rows['address1']%></td> 
+        <td><%=address_rows['address2']%></td>
+      </tr> 
+      <% })} %>
+    </table>
+    <h1>카드</h1>
+    <table border="1">
+      <tr> 
+        <th>카드 번호</th> 
+        <th>만료일</th> 
+        <th>카드 타입</th> 
+      </tr>
+      <% if(rows2) { %>
+        <% rows2.forEach((card_rows, index)=>{ %>
+        <tr> 
+          <td><%=card_rows['cardNumber']%></td> 
+          <td><%=card_rows['expireDate']%></td> 
+          <td><%=card_rows['cardType']%></td>
+        </tr> 
+        <% })} %>
+    </table>
+    <input type="button" value="Back" onclick="javascript:location.href='/index'">
+  </body>
+</html>

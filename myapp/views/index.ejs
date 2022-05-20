@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>book list</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Book list</h1>
+    <input type="button" value="View Cart" onclick="javascript:location.href='/viewCart'">
+    <input type="button" value="AddCreditcard" onclick="javascript:location.href='/AddCard'">
+    <input type="button" value="AddAddresses" onclick="javascript:location.href='/AddAddresses'">
+    <input type="button" value="My Page" onclick="javascript:location.href='/myPage'">
+    <input type="button" value="orderlist" onclick="javascript:location.href='/OrderedList'">
+    <table border='1'> 
+      <tr> 
+        <th>Book Name</th> 
+        <th>Price</th> 
+        <th>Edit</th> 
+      </tr>
+      <!-- rows는 routers/index.js에서 전달해준 rows객체이다. 여기서는 db에서 조회한 메모 데이터를 담고 있다 -->
+      <!-- row.CONTENT는 내용, row.UPDATED_AT은 업데이트된 일/시간 -->
+      <% rows.forEach((row, index)=>{ %>
+      <tr> 
+        <td><%=row.name%></td> 
+        <td><%=row.price%></td> 
+        <td> 
+          <!--기존 메모 수정 페이지 이동, row.ID반환-->
+          <input type="button" onclick="javascript:location.href='/AddtoCart?BookNumber=<%=row.book_no%>'" value="ToCart">
+          <!-- 메모 삭제 요청, row.ID반환 -->
+          <input type="button" onclick="javascript:location.href='/Orderbook?id=<%=row.ID%>'" value="Order"> 
+        </td> 
+      </tr> 
+      <% }) %>
+    </table>
+    <h2>베스트 셀러</h2>
+    <table border='1'> 
+      <tr> 
+        <th>책 이름</th>
+        <th>판매량</th> 
+        <th>책번호</th> 
+        <th>비고</th>
+      </tr>
+      <% bestsellers.forEach((row, index) => {%>
+        <tr>
+          <td><%=row.name%></td>
+          <td><%=row.sold_mount%></td>
+          <td><%=row.Book_book_no%></td>
+        </tr>
+      <%}) %>
+    </table>
+  </body>
+</html>

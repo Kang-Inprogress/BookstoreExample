@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order list</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Order list</h1>
+    <!--<input type="button" value="View Cart" onclick="javascript:location.href='/viewCart'">-->
+    <table border='1'> 
+      <tr> 
+        <th>주문 번호</th> 
+        <th>주문 날짜</th> 
+        <th>총액</th>
+        <th>EDIT</th>
+      </tr>
+      <% rows.forEach((row, index)=>{ %>
+        <% if(row) { %>
+      <tr> 
+        <td><%=row.order_no%></td>
+        <td><%=row.orderDate%></td>
+        <td><%=row.total%> 원</td> 
+        <td>
+            <input type="button" name="detail" value="주문 상세" onclick="javascript:location.href='/OrderedList_detail?order_no=<%=row.order_no%>'">
+        </td>
+      </tr> 
+      <% }}) %>
+    </table>
+    <input type="button" value="Back" onclick="javascript:location.href='/index'">
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>list</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>주문번호 <%=orderNumber%></h1>
+    <!--<input type="button" value="View Cart" onclick="javascript:location.href='/viewCart'">-->
+    <table border='1'> 
+      <tr> 
+        <th>책 이름</th> 
+        <th>수량</th> 
+        <th>소계</th> 
+      </tr>
+      <% rows.forEach((row, index)=>{ %>
+      <tr> 
+        <td><%=row.name%></td> 
+        <td><%=row.order_quantity%></td>
+        <td><%=row.order_price%></td>
+      </tr> 
+      <% }) %>
+    </table>
+    <h2>합계 금액: <%=total%>원</h2>
+    <input type="button" value="Back" onclick="javascript:location.href='/OrderedList'">
+    <input type="button" value="Cancel" onclick="javascript:location.href='/CancelOrder?order_no=<%=orderNumber%>'">
+  </body>
+</html>
